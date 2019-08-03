@@ -7,7 +7,6 @@ class Solution {
 public:
     int titleToNumber(string s) {
         int result;
-        Solution().majorityElement()
         return result;
     }
 };
