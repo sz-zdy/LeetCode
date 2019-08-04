@@ -4,7 +4,7 @@
  * @email: sznust@163.com
  * @Date: 2019-08-04 15:13:08
  * @LastEditors: shenzheng
- * @LastEditTime: 2019-08-04 15:30:14
+ * @LastEditTime: 2019-08-04 15:46:57
  */
 
 /**
@@ -17,7 +17,7 @@
  * };
  */
 #include <vector>
-#include <queck>
+#include <stack>
 #include <iostream>
 #include <queue>
 using namespace std;
