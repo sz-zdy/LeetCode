@@ -2,7 +2,7 @@
 * @Author: ShenZheng
 * @Date:   2019-09-09 14:37:29
 * @Last Modified by:   ShenZheng
-* @Last Modified time: 2019-09-09 17:28:01
+* @Last Modified time: 2019-09-10 08:25:56
 */
 
 #include <iostream>
@@ -50,7 +50,19 @@ public:
         sort(g.begin(),g.end());
         sort(s.begin(),s.end());
 
+        int result = 0;
+        int i = 0;       //i: index for g
+        int j = 0;       //j: index for s
 
+        while(i < g.size() && j < s.size()){
+            if(g[i] <= s[j]){
+                i++; j++;
+                result++;
+            }else if(g[i] > s[j]){
+                j++;
+            }
+        }
+        return result;
     }
 };
 int main(){
