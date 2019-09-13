@@ -1,7 +1,23 @@
+/*
+* @Author: ShenZheng
+* @Date:   2019-09-09 14:37:29
+* @Last Modified by:   anchen
+* @Last Modified time: 2019-09-13 09:33:54
+*/
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+//贪心策略
+//方法1：自己写的，find_if的使用有一些冗余
 class Solution {
 public:
     int findContentChildren(vector<int>& g, vector<int>& s) {
-        //g : gread factor ; s : cookie size
+        //g : gread factor
+        //s : cookie size
+
         if(g.empty() || s.empty()) return 0;
 
         int result = 0;
@@ -24,8 +40,36 @@ public:
     }
 };
 
-int main(){
-    vector<int> g={};
-    vector<int> s={};
+class Solution2 {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        //g : gread factor
+        //s : cookie size
+        if(g.empty() || s.empty()) return 0;
 
+        sort(g.begin(),g.end());
+        sort(s.begin(),s.end());
+
+        int result = 0;
+        int i = 0;       //i: index for g
+        int j = 0;       //j: index for s
+
+        while(i < g.size() && j < s.size()){
+            if(g[i] <= s[j]){
+                i++; j++;
+                result++;
+            }else if(g[i] > s[j]){
+                j++;
+            }
+        }
+        return result;
+    }
+};
+
+int main(){
+    vector<int> g = {1,2,3};
+    vector<int> s = {1,1};
+    int result = Solution2().findContentChildren(g,s);
+    cout<<result<<endl;
+    return 0;
 }
