@@ -1,8 +1,8 @@
 /*
 * @Author: ShenZheng
 * @Date:   2019-06-23 10:38:24
-* @Last Modified by:   ShenZheng
-* @Last Modified time: 2019-06-23 15:59:43
+* @Last Modified by:   anchen
+* @Last Modified time: 2019-09-15 12:08:26
 */
 
 #include <iostream>
@@ -35,6 +35,44 @@ public:
                 tmp.push_back(root->val);
                 que.push(root->left);
                 que.push(root->right);
+            }
+        }
+        return result;
+    }
+};
+
+//复习
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> result;
+        if(root == NULL)
+            rerturn result;
+        queue<TreeNode*> que;
+        que.push(root);
+        int count = 1;
+        int NumInLevel = count;
+
+        TreeNode* tmpNode;
+        vector<int> tmpVec;
+        while(!que.empty()){
+            tmpNode = que.front();
+            tmpVec.push_back(que.tmpNode->val);
+
+            if(tmpNode->left != NULL){
+                que.push(tmpNode->left);
+                count++;
+            }
+            if(tmpNode->right != NULL){
+                que.push(tmpNode->right);
+                count++;
+            }
+
+            que.pop();
+            NumInLevel--;
+            if(NumInLevel == 0){
+                result.push_back(tmpVec);
+                tmpVec.clear();
             }
         }
         return result;

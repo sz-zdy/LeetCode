@@ -1,8 +1,8 @@
 /*
 * @Author: ShenZheng
 * @Date:   2019-05-21 11:22:40
-* @Last Modified by:   ShenZheng
-* @Last Modified time: 2019-05-21 11:36:33
+* @Last Modified by:   anchen
+* @Last Modified time: 2019-09-14 14:58:55
 */
 
 #include <iostream>
@@ -10,7 +10,8 @@
 
 using namespace std;
 
-class Solution {
+//Solution1
+class Solution1 {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
         if(nums.empty())
@@ -34,9 +35,19 @@ public:
     }
 };
 
+//Solution2
+class Solution2 {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+
+        return result;
+
+    }
+};
+
 int main(){
     vector<int> nums={1,2,3};
-    vector<vector<int>> result = Solution().subsets(nums);
+    vector<vector<int>> result = Solution2().subsets(nums);
     for(auto item1:result)
     {
         for(auto item2:item1)
